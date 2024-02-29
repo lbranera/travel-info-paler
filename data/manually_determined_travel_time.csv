@@ -1,0 +1,65 @@
+source,destination,travel_time
+"Almagro,Samar","Daniel Romualdez Airport,Tacloban City,Leyte",12480
+"Almagro,Samar","Allen,Northern Samar",16380
+"Almagro,Samar","Hilongos,Leyte",20100
+"Almagro,Samar","Ormoc City,Leyte",10140
+"Biri,Northern Samar","Daniel Romualdez Airport,Tacloban City,Leyte",24420
+"Biri,Northern Samar","Allen,Northern Samar",4080
+"Biri,Northern Samar","Hilongos,Leyte",44520
+"Biri,Northern Samar","Ormoc City,Leyte",34560
+"Capul,Northern Samar","Daniel Romualdez Airport,Tacloban City,Leyte",13140
+"Capul,Northern Samar","Allen,Northern Samar",1800
+"Capul,Northern Samar","Hilongos,Leyte",38580
+"Capul,Northern Samar","Ormoc City,Leyte",14280
+"Daram,Samar","Daniel Romualdez Airport,Tacloban City,Leyte",10320
+"Daram,Samar","Allen,Northern Samar",19440
+"Daram,Samar","Hilongos,Leyte",14340
+"Daram,Samar","Ormoc City,Leyte",10440
+"Jipapad,Eastern Samar","Daniel Romualdez Airport,Tacloban City,Leyte",20040
+"Jipapad,Eastern Samar","Allen,Northern Samar",18540 
+"Jipapad,Eastern Samar","Hilongos,Leyte",40140
+"Jipapad,Eastern Samar","Ormoc City,Leyte",30180
+"Limasawa,Southern Leyte","Daniel Romualdez Airport,Tacloban City,Leyte",17400
+"Limasawa,Southern Leyte","Allen,Northern Samar",38580
+"Limasawa,Southern Leyte","Hilongos,Leyte",53340
+"Limasawa,Southern Leyte","Ormoc City,Leyte",13860
+"Maripipi,Biliran","Daniel Romualdez Airport,Tacloban City,Leyte",13680
+"Maripipi,Biliran","Allen,Northern Samar",41100
+"Maripipi,Biliran","Hilongos,Leyte",26160
+"Maripipi,Biliran","Ormoc City,Leyte",16200
+"Matuguinao,Samar","Daniel Romualdez Airport,Tacloban City,Leyte",14220
+"Matuguinao,Samar","Allen,Northern Samar",17100
+"Matuguinao,Samar","Hilongos,Leyte",34260
+"Matuguinao,Samar","Ormoc City,Leyte",24300
+"Maydolong,Eastern Samar","Daniel Romualdez Airport,Tacloban City,Leyte",18780
+"Maydolong,Eastern Samar","Allen,Northern Samar",33000
+"Maydolong,Eastern Samar","Hilongos,Leyte",36300 
+"Maydolong,Eastern Samar","Ormoc City,Leyte",26340
+"Motiong,Northern Samar","Daniel Romualdez Airport,Tacloban City,Leyte",14400
+"Motiong,Northern Samar","Allen,Northern Samar",23100
+"Motiong,Northern Samar","Hilongos,Leyte",34440
+"Motiong,Northern Samar","Ormoc City,Leyte",24480
+"San Antonio,Northern Samar","Daniel Romualdez Airport,Tacloban City,Leyte",20820
+"San Antonio,Northern Samar","Allen,Northern Samar",2700
+"San Antonio,Northern Samar","Hilongos,Leyte",40920
+"San Antonio,Northern Samar","Ormoc City,Leyte",30960
+"San Vicente,Northern Samar","Daniel Romualdez Airport,Tacloban City,Leyte",19260
+"San Vicente,Northern Samar","Allen,Northern Samar",9660
+"San Vicente,Northern Samar","Hilongos,Leyte",39300
+"San Vicente,Northern Samar","Ormoc City,Leyte",13380
+"Santo Nino,Samar","Daniel Romualdez Airport,Tacloban City,Leyte",16500
+"Santo Nino,Samar","Allen,Northern Samar",15240
+"Santo Nino,Samar","Hilongos,Leyte",20100
+"Santo Nino,Samar","Ormoc City,Leyte",10140 
+"Silvino Lobos,Nothern Samar","Daniel Romualdez Airport,Tacloban City,Leyte",12120
+"Silvino Lobos,Nothern Samar","Allen,Northern Samar",8460
+"Silvino Lobos,Nothern Samar","Hilongos,Leyte",32160
+"Silvino Lobos,Nothern Samar","Ormoc City,Leyte",22200
+"Tagapul-An,Samar","Daniel Romualdez Airport,Tacloban City,Leyte",13800
+"Tagapul-An,Samar","Allen,Northern Samar",5760
+"Tagapul-An,Samar","Hilongos,Leyte",21480
+"Tagapul-An,Samar","Ormoc City,Leyte",11520
+"Zumarraga,Samar","Daniel Romualdez Airport,Tacloban City,Leyte",10140
+"Zumarraga,Samar","Allen,Northern Samar",19260
+"Zumarraga,Samar","Hilongos,Leyte",14460
+"Zumarraga,Samar","Ormoc City,Leyte",22740
