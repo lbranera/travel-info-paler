@@ -44,7 +44,13 @@ def get_land_travel_cost(distance):
 
 def get_land_travel_info(source, destination, mode='driving'):
     if source == destination:
-        return 0
+
+        return {
+            "time": 0,
+            "distance": 0,
+            "cost": 0,
+        }
+
     else:
         base_url = "https://maps.googleapis.com/maps/api/directions/json"
         
@@ -221,14 +227,13 @@ def get_travel_info(source, destination, mode, pass_through = None):
         print("Error in getting travel route and travel time.")
         print(error)
 
-
-
 if __name__ == "__main__":
 
     travel_info = get_travel_info(
-        source = "Abuyog,Leyte",
-        destination = "Cebu Doctors University Hospital,Cebu City,Cebu",
-        mode = "air"
+        source = "Allen,Northern Samar",
+        destination = "Asian Hospital and Medical Center,Muntinlupa,Metro Manila",
+        mode = "sea",
+        pass_through="HIL"
     )
 
     print(travel_info)
