@@ -57,30 +57,30 @@ def create_travel_info_matrix(params):
 
         time_matrix = time_matrix + ",".join(time_single_row) + "\n"
         distance_matrix = distance_matrix + ",".join(distance_single_row) + "\n"
-        cost_matrix = cost_matrix + ",".join(distance_single_row) + "\n"
+        cost_matrix = cost_matrix + ",".join(cost_single_row) + "\n"
 
     if (mode.upper() == "AIR"):
-        file = open(f"land_{mode}_travel_time_matrix.csv", "w")
+        file = open(f"./result/land_{mode}_travel_time_matrix.csv", "w")
         file.write(time_matrix)
         file.close()
 
-        file = open(f"land_{mode}_travel_distance_matrix.csv", "w")
+        file = open(f"./result/land_{mode}_travel_distance_matrix.csv", "w")
         file.write(distance_matrix)
         file.close()
 
-        file = open(f"land_{mode}_travel_cost_matrix.csv", "w")
+        file = open(f"./result/land_{mode}_travel_cost_matrix.csv", "w")
         file.write(cost_matrix)
         file.close()
     else:
-        file = open(f"land_{mode}_{pass_through}_travel_time_matrix.csv", "w")
+        file = open(f"./result/land_{mode}_{pass_through}_travel_time_matrix.csv", "w")
         file.write(time_matrix)
         file.close()
 
-        file = open(f"land_{mode}_{pass_through}_travel_distance_matrix.csv", "w")
+        file = open(f"./result/land_{mode}_{pass_through}_travel_distance_matrix.csv", "w")
         file.write(distance_matrix)
         file.close()
 
-        file = open(f"land_{mode}_{pass_through}_travel_cost_matrix.csv", "w")
+        file = open(f"./result/land_{mode}_{pass_through}_travel_cost_matrix.csv", "w")
         file.write(cost_matrix)
         file.close()
 
