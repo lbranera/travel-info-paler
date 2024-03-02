@@ -42,6 +42,5 @@ def get_rtc():
     return entries
 
 
-if __name__ == "__main__":
-    for entry in get_localities():
-        print(entry)
+rtc_list = get_rtc()
+municipal_list = get_localities()
