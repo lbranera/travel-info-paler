@@ -1,12 +1,8 @@
 from travel import get_travel_info
-from data_retriever import get_localities, get_rtc
+from data_retriever import rtc_list, municipal_list
 from multiprocessing  import Process
 
-rtc_list = get_rtc()
-municipal_list = get_localities()
-
-def create_travel_info_matrix(params):
-    mode, pass_through = params
+def create_travel_info_matrix(mode, pass_through = None):
 
     first_line = '"' + '","'.join([''] + rtc_list) + '"'
     time_matrix = distance_matrix = cost_matrix = first_line + "\n"
@@ -85,7 +81,6 @@ def create_travel_info_matrix(params):
         file.write(target_file_content)
         file.close()
 
-
 def create_travel_info_row(source):        
     
     travel_modes = [
@@ -159,17 +154,15 @@ def create_travel_info_row(source):
 
 
 if __name__ == "__main__":
-    #p1 = Process(target=create_travel_info_matrix, args=(("air", None),))
-    #p2 = Process(target=create_travel_info_matrix, args=(("sea", "hil"),))
-    #p3 = Process(target=create_travel_info_matrix, args=(("sea", "orm"),))
+    p1 = Process(target=create_travel_info_matrix, args=("air", None))
+    p2 = Process(target=create_travel_info_matrix, args=("sea", "hil"))
+    p3 = Process(target=create_travel_info_matrix, args=("sea", "orm"))
 
-    #p1.start()
-    #p2.start()
-    #p3.start()
+    p1.start()
+    p2.start()
+    p3.start()
 
-    #p1.join()
-    #p2.join()
-    #p3.join()
-    
-    create_travel_info_row(source = "Allen,Northern Samar")
+    p1.join()
+    p2.join()
+    p3.join()
 
