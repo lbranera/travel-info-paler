@@ -1,32 +1,17 @@
 import os
-import csv
 import requests
+
 from dotenv import load_dotenv
 from data_converter import meters_to_kilometers
+
+from data_retriever import airports, seaports
+from data_retriever import flights_info, ships_info
 
 load_dotenv()
 
 # Replace 'YOUR_API_KEY' with your actual Google Maps API key
 
 GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
-
-# List of airports
-
-air_ports = {
-    "MNL": "NAIA,Pasay City,Metro Manila",
-    "TAC": "Daniel Romualdez Airport,Tacloban City,Leyte",
-    "CEB": "Mactan-Cebu International Airport,Lapu-Lapu City,Cebu",
-}
-
-# List of seaports
-
-sea_ports = {
-    "HIL": "Hilongos,Leyte",
-    "ORM": "Ormoc City,Leyte",
-    "MAT": "Matnog,Sorsogon",
-    "ALL": "Allen,Northern Samar",
-    "CEB": "Cebu City,Cebu",
-}
 
 # Determines land travel cost using bus-fare formula 
 
@@ -92,11 +77,7 @@ def get_land_travel_info(source, destination, mode='driving'):
 # Determines (travel time, distance, cost) from Tacloban Airport to MNL or CEB '''
 
 def get_flight_info(destination):
-
-    file = open("./data/flights.csv")
-    csv_reader = csv.reader(file, quotechar='"')
-
-    for (_, flight_dest, time, distance, cost) in csv_reader:
+    for (_, flight_dest, time, distance, cost) in flights_info:
         if (destination == flight_dest):
 
             travel_info = {
@@ -105,17 +86,12 @@ def get_flight_info(destination):
                 "cost": float(cost),
             }
 
-
             return travel_info
 
 # Determines (travel time, distance, cost) from one seaport to another seaport '''
 
 def get_ship_info(source, destination):
-    
-    file = open("./data/ships.csv")
-    csv_reader = csv.reader(file, quotechar='"')
-
-    for (ship_source, ship_dest, time, distance, cost) in csv_reader:
+    for (ship_source, ship_dest, time, distance, cost) in ships_info:
         if ((source == ship_source) and (destination == ship_dest)):
 
             travel_info = {
@@ -141,9 +117,9 @@ def get_travel_info(source, destination, mode, pass_through = None):
             else:
                 AIRPORT_KEY_INDEX = "CEB"
 
-            origin_to_airport = get_land_travel_info(source, air_ports["TAC"])
-            airport_to_airport = get_flight_info(air_ports[AIRPORT_KEY_INDEX])
-            airport_to_RTC = get_land_travel_info(air_ports[AIRPORT_KEY_INDEX], destination)
+            origin_to_airport = get_land_travel_info(source, airports["TAC"])
+            airport_to_airport = get_flight_info(airports[AIRPORT_KEY_INDEX])
+            airport_to_RTC = get_land_travel_info(airports[AIRPORT_KEY_INDEX], destination)
             
             travel_info_array = [
                 origin_to_airport,
@@ -155,7 +131,7 @@ def get_travel_info(source, destination, mode, pass_through = None):
             travel_distance = sum([info["distance"] for info in travel_info_array])
             travel_cost = sum([info["cost"] for info in travel_info_array])
 
-            travel_path = [source, air_ports["TAC"], air_ports[AIRPORT_KEY_INDEX], destination]
+            travel_path = [source, airports["TAC"], airports[AIRPORT_KEY_INDEX], destination]
             
             return {
                 "time": travel_time,
@@ -167,9 +143,9 @@ def get_travel_info(source, destination, mode, pass_through = None):
         elif (mode.upper() == "SEA"):
 
             if (is_rtc_metro_manila(destination)):           
-                origin_to_seaport = get_land_travel_info(source, sea_ports["ALL"])
-                seaport_to_seaport = get_ship_info(sea_ports["ALL"], sea_ports["MAT"])
-                seaport_to_RTC = get_land_travel_info(sea_ports["MAT"], destination)
+                origin_to_seaport = get_land_travel_info(source, seaports["ALL"])
+                seaport_to_seaport = get_ship_info(seaports["ALL"], seaports["MAT"])
+                seaport_to_RTC = get_land_travel_info(seaports["MAT"], destination)
                 
                 travel_info_array = [
                     origin_to_seaport,
@@ -181,7 +157,7 @@ def get_travel_info(source, destination, mode, pass_through = None):
                 travel_distance = sum([info["distance"] for info in travel_info_array])
                 travel_cost = sum([info["cost"] for info in travel_info_array])
 
-                travel_path = [source, sea_ports["ALL"], sea_ports["MAT"], destination]
+                travel_path = [source, seaports["ALL"], seaports["MAT"], destination]
 
                 return {
                     "time": travel_time,
@@ -197,9 +173,9 @@ def get_travel_info(source, destination, mode, pass_through = None):
                 elif (pass_through.upper() == "ORM"):
                     SEAPORT_KEY_INDEX = "ORM"
                 
-                origin_to_seaport = get_land_travel_info(source, sea_ports[SEAPORT_KEY_INDEX])
-                seaport_to_seaport = get_ship_info(sea_ports[SEAPORT_KEY_INDEX], sea_ports["CEB"])
-                seaport_to_RTC = get_land_travel_info(sea_ports["CEB"], destination)
+                origin_to_seaport = get_land_travel_info(source, seaports[SEAPORT_KEY_INDEX])
+                seaport_to_seaport = get_ship_info(seaports[SEAPORT_KEY_INDEX], seaports["CEB"])
+                seaport_to_RTC = get_land_travel_info(seaports["CEB"], destination)
 
                 travel_info_array = [
                     origin_to_seaport,
@@ -211,7 +187,7 @@ def get_travel_info(source, destination, mode, pass_through = None):
                 travel_distance = sum([info["distance"] for info in travel_info_array])
                 travel_cost = sum([info["cost"] for info in travel_info_array])
 
-                travel_path = [source, sea_ports[SEAPORT_KEY_INDEX], sea_ports["CEB"], destination]
+                travel_path = [source, seaports[SEAPORT_KEY_INDEX], seaports["CEB"], destination]
 
                 return {
                     "time": travel_time,
@@ -230,13 +206,19 @@ def get_travel_info(source, destination, mode, pass_through = None):
 if __name__ == "__main__":
 
     travel_info = get_travel_info(
-        source = "Allen,Northern Samar",
-        destination = "Asian Hospital and Medical Center,Muntinlupa,Metro Manila",
+        source = "Abuyog,Leyte",
+        destination = "Cebu Doctors University Hospital,Cebu City,Cebu",
         mode = "sea",
         pass_through="HIL"
     )
 
     print(travel_info)
 
-    #travel_info = get_land_travel_info("Abuyog,Leyte", air_ports["TAC"])
-    #print(travel_info)
+    travel_info = get_travel_info(
+        source = "Abuyog,Leyte",
+        destination = "Chong Hua Hospital,Cebu City,Cebu",
+        mode = "sea",
+        pass_through="HIL"
+    )
+
+    print(travel_info)

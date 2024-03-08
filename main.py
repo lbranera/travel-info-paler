@@ -1,30 +1,30 @@
 from travel import get_travel_info
-from data_retriever import rtc_list, municipal_list
+from data_retriever import radio_therapy_centers_list, municipals_list
 from multiprocessing  import Process
 
 def create_travel_info_matrix(mode, pass_through = None):
 
-    first_line = '"' + '","'.join([''] + rtc_list) + '"'
+    first_line = '"' + '","'.join([''] + radio_therapy_centers_list) + '"'
     time_matrix = distance_matrix = cost_matrix = first_line + "\n"
 
-    for municipal in municipal_list:
+    for municipal in municipals_list:
         single_row = [ f'"{municipal}"' ]
 
         time_single_row = single_row.copy()
         distance_single_row = single_row.copy()
         cost_single_row = single_row.copy()
 
-        for rtc in rtc_list:
+        for radio_therapy_center in radio_therapy_centers_list:
             try:
                 # -- Console logs
                 print("SOURCE:", municipal)
-                print("DESTINATION:", rtc)
+                print("DESTINATION:", radio_therapy_center)
                 # -- Console logs
 
                 if (mode.upper() == "AIR"):
-                    travel_info = get_travel_info(municipal, rtc, mode)
+                    travel_info = get_travel_info(municipal, radio_therapy_center, mode)
                 else:
-                    travel_info = get_travel_info(municipal, rtc, mode, pass_through)
+                    travel_info = get_travel_info(municipal, radio_therapy_center, mode, pass_through)
 
                 formatted_travel_time = str(travel_info["time"])
                 formatted_travel_distance = str(travel_info["distance"])
@@ -94,8 +94,8 @@ def create_travel_info_row(source):
         travel_distance_list = []
         travel_cost_list = []
 
-        for rtc_destination in rtc_list:
-            travel_info = get_travel_info(source, rtc_destination, mode, pass_through)
+        for radio_therapy_center_destination in radio_therapy_centers_list:
+            travel_info = get_travel_info(source, radio_therapy_center_destination, mode, pass_through)
 
             formatted_travel_time = str(travel_info["time"])
             formatted_travel_distance = str(travel_info["distance"])
@@ -106,7 +106,7 @@ def create_travel_info_row(source):
             travel_cost_list.append(formatted_travel_cost)
 
             print("SOURCE:", source)
-            print("DESTINATION:", rtc_destination)
+            print("DESTINATION:", radio_therapy_center_destination)
 
         # Done travel info computation
 
