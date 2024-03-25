@@ -1,5 +1,5 @@
 from travel import get_travel_info
-from data_retriever import radio_therapy_centers_list, municipals_list
+from data_retriever import radio_therapy_centers_list, municities_list
 from multiprocessing  import Process
 
 def create_travel_info_matrix(mode, pass_through = None):
@@ -7,8 +7,8 @@ def create_travel_info_matrix(mode, pass_through = None):
     first_line = '"' + '","'.join([''] + radio_therapy_centers_list) + '"'
     time_matrix = distance_matrix = cost_matrix = first_line + "\n"
 
-    for municipal in municipals_list:
-        single_row = [ f'"{municipal}"' ]
+    for municity in municities_list:
+        single_row = [ f'"{municity}"' ]
 
         time_single_row = single_row.copy()
         distance_single_row = single_row.copy()
@@ -17,14 +17,14 @@ def create_travel_info_matrix(mode, pass_through = None):
         for radio_therapy_center in radio_therapy_centers_list:
             try:
                 # -- Console logs
-                print("SOURCE:", municipal)
+                print("SOURCE:", municity)
                 print("DESTINATION:", radio_therapy_center)
                 # -- Console logs
 
                 if (mode.upper() == "AIR"):
-                    travel_info = get_travel_info(municipal, radio_therapy_center, mode)
+                    travel_info = get_travel_info(municity, radio_therapy_center, mode)
                 else:
-                    travel_info = get_travel_info(municipal, radio_therapy_center, mode, pass_through)
+                    travel_info = get_travel_info(municity, radio_therapy_center, mode, pass_through)
 
                 formatted_travel_time = str(travel_info["time"])
                 formatted_travel_distance = str(travel_info["distance"])
@@ -154,6 +154,7 @@ def create_travel_info_row(source):
 
 
 if __name__ == "__main__":
+    '''
     p1 = Process(target=create_travel_info_matrix, args=("air", None))
     p2 = Process(target=create_travel_info_matrix, args=("sea", "hil"))
     p3 = Process(target=create_travel_info_matrix, args=("sea", "orm"))
@@ -165,4 +166,4 @@ if __name__ == "__main__":
     p1.join()
     p2.join()
     p3.join()
-
+    '''

@@ -2,7 +2,7 @@ import csv
 
 # Retrieves ./data/eastern_visayas.csv
 
-def get_municipals():
+def get_municities():
 
     exemptions = [
         "Almagro,Samar",
@@ -93,7 +93,7 @@ def get_seaports():
 
 
 radio_therapy_centers_list = get_radio_therapy_centers()
-municipals_list = get_municipals()
+municities_list = get_municities()
 
 flights_info = get_flights_info()
 ships_info = get_ships_info()
