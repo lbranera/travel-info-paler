@@ -1,6 +1,7 @@
 # Converts seconds to string hour-and-minutes format
 
 def seconds_to_hours_minutes(seconds):
+    seconds = float(seconds)
     if seconds < 0:
         return "Invalid input, please provide a non-negative number of seconds."
 
@@ -12,5 +13,5 @@ def seconds_to_hours_minutes(seconds):
 # Converts meters to kilometers format
 
 def meters_to_kilometers(meters):
-    kilometers = meters / 1000
+    kilometers = float(meters) / 1000
     return kilometers
