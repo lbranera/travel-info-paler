@@ -47,9 +47,11 @@ source,destination,time,distance,cost
 "Mactan-Cebu International Airport,Lapu-Lapu City,Cebu","Cebu Doctors University Hospital,Cebu City,Cebu",2760,14900,35.275
 "Mactan-Cebu International Airport,Lapu-Lapu City,Cebu","Chong Hua Hospital,Cebu City,Cebu",2700,14400,34.15
 "Mactan-Cebu International Airport,Lapu-Lapu City,Cebu","Perpetual Succour Hospital,Cebu City,Cebu",2520,14300,33.925
-"San Jose,Northern Samar","Hilongos,Leyte",35580 ,408000,919.75
-"San Jose,Northern Samar","Ormoc City,Leyte",32160 ,362000,816.25
-"San Jose,Northern Samar","Allen,Northern Samar",2340 ,27900,64.525
-"Mondragon,Northern Samar","Hilongos,Leyte",37920 ,427000,962.5
-"Mondragon,Northern Samar","Ormoc City,Leyte",34440 ,381000,859
-"Mondragon,Northern Samar","Allen,Northern Samar",7800 ,81200,184.45
+"San Jose,Northern Samar","Hilongos,Leyte",35580,408000,919.75
+"San Jose,Northern Samar","Ormoc City,Leyte",32160,362000,816.25
+"San Jose,Northern Samar","Allen,Northern Samar",2340,27900,64.525
+"San Jose,Northern Samar","Daniel Romualdez Airport,Tacloban City,Leyte",26160,276000,622.75
+"Mondragon,Northern Samar","Hilongos,Leyte",37920,427000,962.5
+"Mondragon,Northern Samar","Ormoc City,Leyte",34440,381000,859
+"Mondragon,Northern Samar","Allen,Northern Samar",7800,81200,184.45
+"Mondragon,Northern Samar","Daniel Romualdez Airport,Tacloban City,Leyte",27900,295000,665.5
