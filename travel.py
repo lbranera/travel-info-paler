@@ -1,4 +1,5 @@
 import os
+import csv
 import requests
 
 from dotenv import load_dotenv
@@ -12,6 +13,7 @@ load_dotenv()
 # Replace 'YOUR_API_KEY' with your actual Google Maps API key
 
 GOOGLE_API_KEY = os.getenv('GOOGLE_API_KEY')
+ACTIVATE_GOOGLE = False
 
 # Determines land travel cost using bus-fare formula 
 
@@ -37,42 +39,62 @@ def get_land_travel_info(source, destination, mode='driving'):
         }
 
     else:
-        base_url = "https://maps.googleapis.com/maps/api/directions/json"
-        
-        params = {
-            'origin': source,
-            'destination': destination,
-            'mode': mode,
-            'key': GOOGLE_API_KEY,
-        }
 
-        response = requests.get(base_url, params=params)
-        data = response.json()
+        use_google_api = False
 
-        #print(data)
-
-        if data['status'] == 'OK':
-            routes = data['routes']
-
-            travel_times = []
-            travel_distances = []
-
-            for route in routes:
-                distance = min([ float(leg['distance']['value']) for leg in route['legs']])
-                time = min([ float(leg['duration']['value']) for leg in route['legs']])
-
-                travel_times.append(time)
-                travel_distances.append(distance)
+        if (not use_google_api):
+            file = open("./data/manual_travel_info.csv")
+            csv_reader = csv.reader(file, quotechar='"')
+            travel_info_data = list(csv_reader)
+            travel_info_data = travel_info_data[1: ]
             
-            travel_time = min(travel_times)
-            travel_distance = min(travel_distances)
-            travel_cost = get_land_travel_cost(travel_distance)
+            for (target_source, target_destination, time, distance, cost) in travel_info_data:
+                if (source == target_source) and (destination == target_destination):
+                    return {
+                        "time": float(time),
+                        "distance": float(distance),
+                        "cost": float(cost),
+                    }
+            
+            use_google_api = True
 
-            return {
-                "time": travel_time,
-                "distance": travel_distance,
-                "cost": travel_cost
+        if (use_google_api and ACTIVATE_GOOGLE):
+            base_url = "https://maps.googleapis.com/maps/api/directions/json"
+            
+            params = {
+                'origin': source,
+                'destination': destination,
+                'mode': mode,
+                'key': GOOGLE_API_KEY,
             }
+
+            response = requests.get(base_url, params=params)
+            data = response.json()
+
+            #print(data)
+
+            if data['status'] == 'OK':
+                routes = data['routes']
+
+                travel_times = []
+                travel_distances = []
+
+                for route in routes:
+                    distance = min([ float(leg['distance']['value']) for leg in route['legs']])
+                    time = min([ float(leg['duration']['value']) for leg in route['legs']])
+
+                    travel_times.append(time)
+                    travel_distances.append(distance)
+                
+                travel_time = min(travel_times)
+                travel_distance = min(travel_distances)
+                travel_cost = get_land_travel_cost(travel_distance)
+
+                return {
+                    "time": travel_time,
+                    "distance": travel_distance,
+                    "cost": travel_cost
+                }
 
 # Determines (travel time, distance, cost) from Tacloban Airport to MNL or CEB '''
 
@@ -204,7 +226,6 @@ def get_travel_info(source, destination, mode, pass_through = None):
         print(error)
 
 if __name__ == "__main__":
-
     travel_info = get_travel_info(
         source = "Abuyog,Leyte",
         destination = "Cebu Doctors University Hospital,Cebu City,Cebu",

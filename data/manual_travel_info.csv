@@ -1,0 +1,55 @@
+source,destination,time,distance,cost
+"Matnog,Sorsogon","Asian Hospital and Medical Center,Muntinlupa,Metro Manila",43620,553000,1246
+"Matnog,Sorsogon","Cardinal Santos Medical Center,San Juan,Metro Manila",45060,577000,1300
+"Matnog,Sorsogon","Centuria Medical Makati - Asian Breast Center,Makati,Metro Manila",44700,574000,1293.25
+"Matnog,Sorsogon","Chinese General Hospital and Medical Center,Manila,Metro Manila",45120,581000,1309
+"Matnog,Sorsogon","Jose R. Reyes Memorial Medical Center,Manila,Metro Manila",45180,580000,1306.75
+"Matnog,Sorsogon","Lung Center of the Philippines,Quezon City,Metro Manila",45360,587000,1322.5
+"Matnog,Sorsogon","Makati Medical Center,Makati,Metro Manila",44400,573000,1291
+"Matnog,Sorsogon","Manila Doctors Hospital,Manila,Metro Manila",44760,577000,1300
+"Matnog,Sorsogon","Manila Med,Manila,Metro Manila",44640,577000,1300
+"Matnog,Sorsogon","Metropolitan Medical Center,Manila,Metro Manila",45300,581000,1309
+"Matnog,Sorsogon","Philippine General Hospital,Manila,Metro Manila",44820,576000,1297.75
+"Matnog,Sorsogon","Philippine Oncology Center Corporation - Marian,Quezon City,Metro Manila",46260,598000,1347.25
+"Matnog,Sorsogon","Quirino Memorial Medical Center,Quezon City,Metro Manila",45420,584000,1315.75
+"Matnog,Sorsogon","Rizal Medical Center,Pasig,Metro Manila",44760,575000,1295.5
+"Matnog,Sorsogon","San Juan De Dios Hospital,Pasay,Metro Manila",44520,573000,1291
+"Matnog,Sorsogon","St. Luke's Medical Center - Global City,Taguig,Metro Manila",44700,574000,1293.25
+"Matnog,Sorsogon","St. Luke's Medical Center - Quezon City,Quezon City,Metro Manila",44700,583000,1313.5
+"Matnog,Sorsogon","The Medical City,Pasig,Metro Manila",44700,575000,1295.5
+"Matnog,Sorsogon","University of Perpetual Help Delta,Las Pinas,Metro Manila",45000,562000,1266.25
+"Matnog,Sorsogon","University of Santo Tomas,Manila,Metro Manila",45420,577000,1300
+"Matnog,Sorsogon","Urology Center of the Philippines Inc.,Quezon City,Metro Manila",45780,586000,1320.25
+"NAIA,Pasay City,Metro Manila","Asian Hospital and Medical Center,Muntinlupa,Metro Manila",1980,20300,47.425
+"NAIA,Pasay City,Metro Manila","Cardinal Santos Medical Center,San Juan,Metro Manila",2640,17400,40.9
+"NAIA,Pasay City,Metro Manila","Centuria Medical Makati - Asian Breast Center,Makati,Metro Manila",1740,13000,31
+"NAIA,Pasay City,Metro Manila","Chinese General Hospital and Medical Center,Manila,Metro Manila",2460,19000,44.5
+"NAIA,Pasay City,Metro Manila","Jose R. Reyes Memorial Medical Center,Manila,Metro Manila",2400,13700,32.575
+"NAIA,Pasay City,Metro Manila","Lung Center of the Philippines,Quezon City,Metro Manila",2820,25200,58.45
+"NAIA,Pasay City,Metro Manila","Makati Medical Center,Makati,Metro Manila",1380,10900,26.275
+"NAIA,Pasay City,Metro Manila","Manila Doctors Hospital,Manila,Metro Manila",1440,9500,23.125
+"NAIA,Pasay City,Metro Manila","Manila Med,Manila,Metro Manila",1740,9600,23.35
+"NAIA,Pasay City,Metro Manila","Metropolitan Medical Center,Manila,Metro Manila",2460,13300,31.675
+"NAIA,Pasay City,Metro Manila","Philippine General Hospital,Manila,Metro Manila",1680,9100,22.225
+"NAIA,Pasay City,Metro Manila","Philippine Oncology Center Corporation - Marian,Quezon City,Metro Manila",4440,38600,88.6
+"NAIA,Pasay City,Metro Manila","Quirino Memorial Medical Center,Quezon City,Metro Manila",3180,17700,41.575
+"NAIA,Pasay City,Metro Manila","Rizal Medical Center,Pasig,Metro Manila",1980,15600,36.85
+"NAIA,Pasay City,Metro Manila","San Juan De Dios Hospital,Pasay,Metro Manila",900,5500,14.125
+"NAIA,Pasay City,Metro Manila","St. Luke's Medical Center - Global City,Taguig,Metro Manila",1500,9700,23.575
+"NAIA,Pasay City,Metro Manila","St. Luke's Medical Center - Quezon City,Quezon City,Metro Manila",2640,23700,55.075
+"NAIA,Pasay City,Metro Manila","The Medical City,Pasig,Metro Manila",2580,17000,40
+"NAIA,Pasay City,Metro Manila","University of Perpetual Help Delta,Las Pinas,Metro Manila",1860,10400,25.15
+"NAIA,Pasay City,Metro Manila","University of Santo Tomas,Manila,Metro Manila",2340,14000,33.25
+"NAIA,Pasay City,Metro Manila","Urology Center of the Philippines Inc.,Quezon City,Metro Manila",3240,26800,62.05
+"Cebu Port Authority - Pier 4, 115 Arellano Blvd, Cebu City, 6000 Cebu","Cebu Doctors University Hospital,Cebu City,Cebu",1140,4100,13
+"Cebu Port Authority - Pier 4, 115 Arellano Blvd, Cebu City, 6000 Cebu","Chong Hua Hospital,Cebu City,Cebu",900,4200,13
+"Cebu Port Authority - Pier 4, 115 Arellano Blvd, Cebu City, 6000 Cebu","Perpetual Succour Hospital,Cebu City,Cebu",420,3000,13
+"Mactan-Cebu International Airport,Lapu-Lapu City,Cebu","Cebu Doctors University Hospital,Cebu City,Cebu",2760,14900,35.275
+"Mactan-Cebu International Airport,Lapu-Lapu City,Cebu","Chong Hua Hospital,Cebu City,Cebu",2700,14400,34.15
+"Mactan-Cebu International Airport,Lapu-Lapu City,Cebu","Perpetual Succour Hospital,Cebu City,Cebu",2520,14300,33.925
+"San Jose,Northern Samar","Hilongos,Leyte",35580 ,408000,919.75
+"San Jose,Northern Samar","Ormoc City,Leyte",32160 ,362000,816.25
+"San Jose,Northern Samar","Allen,Northern Samar",2340 ,27900,64.525
+"Mondragon,Northern Samar","Hilongos,Leyte",37920 ,427000,962.5
+"Mondragon,Northern Samar","Ormoc City,Leyte",34440 ,381000,859
+"Mondragon,Northern Samar","Allen,Northern Samar",7800 ,81200,184.45
