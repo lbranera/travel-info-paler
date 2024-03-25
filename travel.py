@@ -55,6 +55,13 @@ def get_land_travel_info(source, destination, mode='driving'):
                         "distance": float(distance),
                         "cost": float(cost),
                     }
+                
+                if (source == target_destination) and (destination == target_source):
+                    return {
+                        "time": float(time),
+                        "distance": float(distance),
+                        "cost": float(cost),
+                    }
             
             use_google_api = True
 
@@ -194,7 +201,7 @@ def get_travel_info(source, destination, mode, pass_through = None):
                     SEAPORT_KEY_INDEX = "HIL"
                 elif (pass_through.upper() == "ORM"):
                     SEAPORT_KEY_INDEX = "ORM"
-                
+
                 origin_to_seaport = get_land_travel_info(source, seaports[SEAPORT_KEY_INDEX])
                 seaport_to_seaport = get_ship_info(seaports[SEAPORT_KEY_INDEX], seaports["CEB"])
                 seaport_to_RTC = get_land_travel_info(seaports["CEB"], destination)
@@ -204,6 +211,8 @@ def get_travel_info(source, destination, mode, pass_through = None):
                     seaport_to_seaport,
                     seaport_to_RTC,
                 ]
+
+
 
                 travel_time = sum([info["time"] for info in travel_info_array])
                 travel_distance = sum([info["distance"] for info in travel_info_array])
@@ -227,7 +236,7 @@ def get_travel_info(source, destination, mode, pass_through = None):
 
 if __name__ == "__main__":
     travel_info = get_travel_info(
-        source = "Abuyog,Leyte",
+        source = "Mondragon,Northern Samar",
         destination = "Cebu Doctors University Hospital,Cebu City,Cebu",
         mode = "sea",
         pass_through="HIL"
@@ -236,10 +245,10 @@ if __name__ == "__main__":
     print(travel_info)
 
     travel_info = get_travel_info(
-        source = "Abuyog,Leyte",
-        destination = "Chong Hua Hospital,Cebu City,Cebu",
+        source = "Mondragon,Northern Samar",
+        destination = "Cebu Doctors University Hospital,Cebu City,Cebu",
         mode = "sea",
-        pass_through="HIL"
+        pass_through="ORM"
     )
 
     print(travel_info)

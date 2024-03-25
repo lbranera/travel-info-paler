@@ -90,11 +90,14 @@ def create_travel_info_row(source):
     ]
 
     for mode, pass_through in travel_modes:
+        print(f"\n*** {mode} ***")
         travel_time_list = []
         travel_distance_list = []
         travel_cost_list = []
 
         for radio_therapy_center_destination in radio_therapy_centers_list:
+            print("SOURCE:", source)
+            print("DESTINATION:", radio_therapy_center_destination)
             travel_info = get_travel_info(source, radio_therapy_center_destination, mode, pass_through)
 
             formatted_travel_time = str(travel_info["time"])
@@ -105,8 +108,8 @@ def create_travel_info_row(source):
             travel_distance_list.append(formatted_travel_distance)
             travel_cost_list.append(formatted_travel_cost)
 
-            print("SOURCE:", source)
-            print("DESTINATION:", radio_therapy_center_destination)
+            #print("SOURCE:", source)
+            #print("DESTINATION:", radio_therapy_center_destination)
 
         # Done travel info computation
 
@@ -124,33 +127,35 @@ def create_travel_info_row(source):
             ]
 
 
-            travel_info_list = [
-                travel_time_list,
-                travel_distance_list,
-                travel_cost_list,
-            ]
+        travel_info_list = [
+            travel_time_list,
+            travel_distance_list,
+            travel_cost_list,
+        ]
 
-            for index, filename in enumerate(filenames):
-                file = open(filename)
-                row_entries = [entry for entry in file.readlines()]
-                file.close()
+        print("\n*** UPDATING ***")
+        for index, filename in enumerate(filenames):
+            print(filename)
+            file = open(filename)
+            row_entries = [entry for entry in file.readlines()]
+            file.close()
 
-                target_row_index = 0
-                for row_index, row_entry in enumerate(row_entries):
-                    if (source.upper() in row_entry.upper()):
-                        target_row_index = row_index
-                        break
+            target_row_index = 0
+            for row_index, row_entry in enumerate(row_entries):
+                if (source.upper() in row_entry.upper()):
+                    target_row_index = row_index
+                    break
 
-                target_travel_info_list = travel_info_list[index]
+            target_travel_info_list = travel_info_list[index]
 
-                updated_row = f'"{source}",' + ",".join(target_travel_info_list) + "\n"
-                row_entries[target_row_index] = updated_row
+            updated_row = f'"{source}",' + ",".join(target_travel_info_list) + "\n"
+            row_entries[target_row_index] = updated_row
 
-                updated_content = "".join(row_entries)
+            updated_content = "".join(row_entries)
 
-                file = open(filename, "w")
-                file.write(updated_content)
-                file.close()
+            file = open(filename, "w")
+            file.write(updated_content)
+            file.close()
 
 
 if __name__ == "__main__":
@@ -167,3 +172,6 @@ if __name__ == "__main__":
     p2.join()
     p3.join()
     '''
+
+    create_travel_info_row("Mondragon,Northern Samar")
+    create_travel_info_row("San Jose,Northern Samar")
