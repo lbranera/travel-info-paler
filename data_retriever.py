@@ -70,10 +70,10 @@ def get_airports():
     airports = list(csv_reader)
     airports = airports[1: ]
 
-    airports_dict_list = []
+    airports_dict_list = {}
 
     for key, airport in airports:
-        airports_dict_list.append({ key: airport })
+        airports_dict_list[key] = airport
     
     return airports_dict_list
 
@@ -84,10 +84,10 @@ def get_seaports():
     seaports = list(csv_reader)
     seaports = seaports[1: ]
 
-    seaports_dict_list = []
+    seaports_dict_list = {}
 
     for key, seaport in seaports:
-        seaports_dict_list.append({ key: seaport })
+        seaports_dict_list[key] = seaport
     
     return seaports_dict_list
 
